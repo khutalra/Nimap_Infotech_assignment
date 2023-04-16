@@ -1,0 +1,34 @@
+<div style="background-color: rgb(12, 148, 202);">
+  <app-header [activeLink]="'Profile'"></app-header>
+</div>
+
+<div class="box">
+  <div class="row">
+    <div class="col-3">
+      <div class="profile-section">
+        <h2 class="header-text">Profile</h2>
+        <img id="profile">
+        <br>
+        <input type="file" #fileInput style="display:none" (change)="onFileSelected($event)" accept="image/*" />
+        <button class="btn btn-warning btn-sm m-lg-3" (click)="fileInput.click()">Edit Photo</button>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit
+          Profile</button>
+      </div>
+    </div>
+
+    <div class="col-4" >
+      <div class="ml-1 mt-5" *ngIf="user">
+        I'm {{ user?.fname }} {{ user.lname }} and Im above {{ user.age }} year and you can send your emails to <a
+          [href]="'mailto:'+ user.email">{{user.email}}</a>. I live in the state of {{ user.state }}.
+        I like to play
+        <div *ngFor="let item of user?.tags || []" class="tag-list"> {{ item }}</div>.
+        And please send me newsletters. Please reach out to me on my phone number <a [href]="'tel:' + user.contact">{{ user.contact }}</a>.
+        <div>
+          <button class="btn btn-success mt-3">I Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-user-registration [title]="'Edit Profile'"></app-user-registration>
+<app-footer></app-footer>

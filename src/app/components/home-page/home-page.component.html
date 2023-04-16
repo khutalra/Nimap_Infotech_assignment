@@ -1,0 +1,53 @@
+<div class="header">
+  <div class="container-fluid ">
+    <app-header></app-header>
+    <div class="text-white m-lg-5">
+      <h1 class="fst-italic"> i'm Looking For...</h1>
+    </div>
+    <form class="d-flex m-lg-5 " role="search">
+      <input class="form-control me-2 w-50 fst-italic " type="search" placeholder="Enter a Job Description"
+        aria-label="Search">
+      <button mat-fab extended color="primary">
+        <mat-icon>search</mat-icon>Search
+      </button>
+    </form>
+    <div class="m-lg-5">
+      <div class="form-check form-check-inline text-white pe-5">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label" for="inlineCheckbox1">Full Time</label>
+      </div>
+      <div class="form-check form-check-inline text-white pe-xl-4">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Part time / Casual / Freelance</label>
+      </div>
+
+      <div class="custom-select">
+        <select class="form-control form-select" placeholder="State">
+          <option value="" disabled selected>Select Your Location</option>
+          <option value="Pune">Pune</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Nashik">Nashik</option>
+        </select>
+      </div>
+    </div>
+    <div class="text-center">
+        <button mat-flat-button color="primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">Register</button>
+    </div>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="container text-center pt-5 pe-5">
+    <h3 class="fst-italic pt-4">We're Leaders in </h3>
+    <h1 class="fnt-italic">Creative Degital Recurment</h1>
+    <br>
+
+    <p>Based in Surry Hills,the creative hub of Sydney we are sorrounded by creativity <br>
+      and that reflects on the type of jobs we recruit for.</p>
+    <button class="btn btn-outline-primary btn-md mt-5"> FIND OUT MORE ABOUT US! </button>
+  </div>
+</div>
+<app-user-registration [title]="'Register'"></app-user-registration>
+<app-footer></app-footer>
