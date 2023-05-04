@@ -65,7 +65,7 @@ export class UserRegistrationComponent implements OnInit {
       this.userService.saveProfile(this.registrationForm.value).subscribe((result) => {
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['/profile'])
-         
+
         });
       }, _ => {
         alert('Something went wrong try again...');
@@ -81,18 +81,20 @@ export class UserRegistrationComponent implements OnInit {
     const MAX_HEIGHT = 325;
 
     if (file) {
-      const img = document.createElement('img');
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = () => {
-        img.src = reader.result as string;
-        if (!(img.width !== MAX_WIDTH && img.height !== MAX_HEIGHT)) {
-          alert('Please select image with resolution 310 x 325 px');
-        } else {
-          this.registrationForm.controls['photo'].setValue(reader.result);
-          const image: any = document.getElementById("box");
-          image.src = reader.result;
-        }
+      reader.onload = (e: any) => {
+        const img = new Image();
+        img.onload = () => {
+          if (img.width !== MAX_WIDTH && img.height !== MAX_HEIGHT) {
+            alert('Please select image with resolution 310 x 325 px, current resolution is ' + img.width + ' x ' + img.height + ' px');
+          } else {
+            this.registrationForm.controls['photo'].setValue(reader.result);
+            const image: any = document.getElementById("box");
+            image.src = reader.result;
+          }
+        };
+        img.src = e.target?.result;
       };
     }
   }

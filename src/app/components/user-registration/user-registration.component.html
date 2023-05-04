@@ -20,7 +20,7 @@
                 <mat-label>First name</mat-label>
                 <input matInput formControlName="fname">
                 <mat-error *ngIf="registrationForm.controls['fname'].hasError('required')">
-                  First name is required
+                   Name is required
                 </mat-error>
                 <mat-error *ngIf="registrationForm.controls['fname'].hasError('pattern')">
                   Enter valid name
@@ -31,7 +31,7 @@
                 <mat-label>Last name</mat-label>
                 <input matInput formControlName="lname">
                 <mat-error *ngIf="registrationForm.controls['lname'].hasError('required')">
-                  Last name is required
+                  Name is required
                 </mat-error>
                 <mat-error *ngIf="registrationForm.controls['lname'].hasError('pattern')">
                   Enter valid name

@@ -36,18 +36,20 @@ export class UserProfileComponent implements OnInit {
     const MAX_HEIGHT = 325;
 
     if (file) {
-      const img = document.createElement('img');
       const reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onload = () => {
-        img.src = reader.result as string;
-        if (!(img.width !== MAX_WIDTH && img.height !== MAX_HEIGHT)) {
-          alert('Please select image with resolution 310 x 325 px');
-        } else {
-          this.user.photo = reader.result;
-          const image: any = document.getElementById("profile");
-          image.src = reader.result;
-          this.saveProfile();
+      reader.onload = (e: any) => {
+        const img = new Image();
+        img.onload = () => {
+          if (img.width !== MAX_WIDTH && img.height !== MAX_HEIGHT) {
+            alert('Please select image with resolution 310 x 325 px');
+          } else {
+            this.user.photo = reader.result;
+            const image: any = document.getElementById("profile");
+            image.src = reader.result;
+            this.saveProfile();
+          };
+          img.src = e.target?.result;
         }
       };
     }
