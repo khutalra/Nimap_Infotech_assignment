@@ -49,8 +49,8 @@ export class UserProfileComponent implements OnInit {
             image.src = reader.result;
             this.saveProfile();
           };
-          img.src = e.target?.result;
         }
+        img.src = e.target?.result;
       };
     }
   }
